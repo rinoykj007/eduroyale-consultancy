@@ -1,18 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Carousel from "./Carousel";
-import Services from "./Services";
-import CardSelection from "./CardSelection";
-import Slider from "react-slick";
-import { motion } from "framer-motion";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Carousel from './Carousel';
+import Services from './Services';
+import CardSelection from './CardSelection';
+import Slider from 'react-slick';
+import { motion } from 'framer-motion';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import TestimonialCarousel from "./TestimonialCarousel";
-import ImageCarousel from "./ImageCarousel";
+import TestimonialCarousel from './TestimonialCarousel';
+import ImageCarousel from './ImageCarousel';
 
-const Home = () => {
+interface Testimonial {
+  text: string;
+  name: string;
+  university: string;
+  image: string;
+}
+
+const Home: React.FC = () => {
   // Make sure this testimonials array is defined
-  const testimonials = [
+  const testimonials: Testimonial[] = [
     {
       text: "EduAbroadConsult made my dream of studying abroad a reality. Their guidance was invaluable throughout the entire process.",
       name: "John Doe",

@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCube, Autoplay } from "swiper/modules";
 import { loadFull } from "tsparticles";
-import type { Engine } from "tsparticles-engine";
+import Particles from "react-particles";
+import type { Engine } from "@tsparticles/engine";
 import { Star, StarHalf } from "lucide-react";
 import "./style/CardSelection.css";
 
@@ -12,9 +13,9 @@ import "./style/CardSelection.css";
 import "swiper/swiper-bundle.css";
 
 export default function CardSelection() {
-  const particlesInit = async (engine: Engine) => {
-    await loadFull(engine);
-  };
+  const particlesLoaded = useCallback(async (container: any) => {
+    await console.log(container);
+  }, []);
 
   const swiperRef = useRef(null);
 
@@ -35,7 +36,14 @@ export default function CardSelection() {
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-[100%] mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
       </div>
 
-      <div id="tsparticles" className="absolute inset-0 opacity-40" />
+      <Particles
+        id="tsparticles"
+        loaded={particlesLoaded}
+        options={{
+          // your particles options
+        }}
+        className="absolute inset-0 opacity-40"
+      />
 
       {/* Main content */}
       <section className="relative grid grid-cols-1 lg:grid-cols-2 place-items-center gap-16 min-h-screen p-5 lg:p-16">

@@ -1,11 +1,6 @@
-"use client";
-
-import React, { useState } from "react";
-import WhatsApp from "../assets/WhatsApp";
+import React from "react";
 
 const Footer = () => {
-  const [showMore, setShowMore] = useState(false);
-
   return (
     <footer className="bg-[#000000] text-[#FFFFFFDD] font-inter py-10 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
