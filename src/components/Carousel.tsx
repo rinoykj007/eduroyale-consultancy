@@ -163,12 +163,9 @@ export default function Carousel() {
       ))}
 
       {/* Thumbnails */}
-      <div className="absolute right-0 sm:right-[-2rem] md:right-2 bottom-10 sm:bottom-20 z-30 overflow-hidden">
-        <div
-          className="relative flex items-center justify-end gap-2 sm:gap-4 pr-2 sm:pr-4"
-          style={{ width: "calc(200px * 3 - 3rem)" }}
-        >
-          {items.slice(1).map((item, index) => (
+      <div className="absolute right-4 sm:right-8 md:right-12 bottom-10 sm:bottom-20 z-30">
+        <div className="relative flex items-center justify-end gap-2 sm:gap-3 md:gap-4">
+          {items.slice(1, 4).map((item, index) => (
             <div
               key={item.id}
               className={`
@@ -177,21 +174,10 @@ export default function Carousel() {
                 transition-all duration-[1200ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]
                 hover:scale-[1.08] hover:-translate-y-2
                 group shrink-0
-                w-[90px] h-[160px]
-                sm:w-[160px] sm:h-[270px]
-                md:w-[200px] md:h-[300px]
-                ${
-                  index >= 3
-                    ? "translate-x-[100%] opacity-0"
-                    : "translate-x-0 opacity-100"
-                }
-                -mr-2 sm:-mr-4 md:-mr-8
+                md:w-[160px] md:h-[240px]
+                sm:w-[120px] sm:h-[180px]
+                w-[90px] h-[135px]
               `}
-              style={{
-                transform: `translateX(${index * 20}%)`,
-                transition:
-                  "transform 1200ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 1200ms ease-out",
-              }}
               onClick={() => rotateItems("next")}
             >
               <div
@@ -212,14 +198,14 @@ export default function Carousel() {
                 }}
               >
                 <div
-                  className="text-xs sm:text-sm font-medium mb-0.5 sm:mb-1 opacity-90 transition-all duration-[1200ms]
+                  className="text-[10px] sm:text-xs md:text-sm font-medium mb-0.5 sm:mb-1 opacity-90 transition-all duration-[1200ms]
                             group-hover:opacity-100"
                 >
                   {item.place}
                 </div>
                 <div
-                  className="text-sm sm:text-base md:text-lg font-bold leading-tight transition-all duration-[1200ms]
-                            group-hover:opacity-100 line-clamp-2"
+                  className="text-xs sm:text-sm md:text-base font-bold leading-tight transition-all duration-[1200ms]
+                            group-hover:opacity-100"
                 >
                   {item.title} {item.title2}
                 </div>
@@ -230,10 +216,10 @@ export default function Carousel() {
       </div>
 
       {/* Navigation */}
-      <div className="nav absolute bottom-4 sm:bottom-8 right-8 sm:right-16 z-50 select-none">
+      <div className="nav absolute bottom-4 sm:bottom-8 left-4 sm:left-auto sm:right-16 z-50 select-none flex gap-2 sm:gap-3">
         <button
           className="btn bg-white/50 text-black/70 border-2 border-black/60 
-                   mx-1 px-3 py-2 rounded-full cursor-pointer
+                   px-2 sm:px-3 py-1 sm:py-2 rounded-full cursor-pointer text-sm sm:text-base
                    hover:bg-white/30"
           onClick={() => rotateItems("prev")}
         >
@@ -241,7 +227,7 @@ export default function Carousel() {
         </button>
         <button
           className="btn bg-white/50 text-black/70 border-2 border-black/60 
-                   mx-1 px-3 py-2 rounded-full cursor-pointer
+                   px-2 sm:px-3 py-1 sm:py-2 rounded-full cursor-pointer text-sm sm:text-base
                    hover:bg-white/30"
           onClick={() => rotateItems("next")}
         >
