@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useState, useRef } from "react";
+import { loadSlim } from "@tsparticles/slim";
+import type { Engine } from "@tsparticles/engine";
+import { Particles } from "@tsparticles/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCube, Autoplay } from "swiper/modules";
-import { loadFull } from "tsparticles";
-import Particles from "react-particles";
-import type { Engine } from "@tsparticles/engine";
 import { Star, StarHalf } from "lucide-react";
 import "./style/CardSelection.css";
 
@@ -13,9 +13,40 @@ import "./style/CardSelection.css";
 import "swiper/swiper-bundle.css";
 
 export default function CardSelection() {
-  const particlesLoaded = useCallback(async (container: any) => {
-    await console.log(container);
-  }, []);
+  const particlesInit = async (engine: Engine) => {
+    await loadSlim(engine);
+  };
+
+  const particlesOptions = {
+    background: {
+      color: {
+        value: "transparent",
+      },
+    },
+    fpsLimit: 120,
+    particles: {
+      color: {
+        value: "#ffffff",
+      },
+      links: {
+        color: "#ffffff",
+        distance: 150,
+        enable: true,
+        opacity: 0.5,
+        width: 1,
+      },
+      move: {
+        enable: true,
+        speed: 2,
+      },
+      opacity: {
+        value: 0.5,
+      },
+      size: {
+        value: { min: 1, max: 3 },
+      },
+    },
+  };
 
   const swiperRef = useRef(null);
 
@@ -38,10 +69,8 @@ export default function CardSelection() {
 
       <Particles
         id="tsparticles"
-        loaded={particlesLoaded}
-        options={{
-          // your particles options
-        }}
+        init={particlesInit}
+        options={particlesOptions}
         className="absolute inset-0 opacity-40"
       />
 
