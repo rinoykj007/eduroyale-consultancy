@@ -84,7 +84,7 @@ export default function Carousel() {
 
   return (
     <main
-      className="relative w-full h-screen overflow-hidden bg-[#1a1a1a]"
+      className="relative w-full min-h-screen h-[100dvh] overflow-hidden bg-[#1a1a1a]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -114,7 +114,7 @@ export default function Carousel() {
 
           {/* Content */}
           <div
-            className="absolute top-[20%] left-4 md:left-16 z-20 text-white transition-all duration-[1500ms]"
+            className="absolute top-[10%] sm:top-[15%] md:top-[20%] left-4 md:left-16 z-20 text-white transition-all duration-[1500ms] px-4 sm:px-0"
             style={{
               transform: `translateY(${index === 0 ? "0" : "30px"})`,
               opacity: index === 0 ? 1 : 0,
@@ -127,15 +127,15 @@ export default function Carousel() {
                 {item.place}
               </div>
             </div>
-            <div className="space-y-2">
-              <div className="text-6xl sm:text-8xl md:text-[120px] font-bold uppercase leading-none">
+            <div className="space-y-1 sm:space-y-2">
+              <div className="text-4xl sm:text-6xl md:text-8xl lg:text-[120px] font-bold uppercase leading-none">
                 {item.title}
               </div>
-              <div className="text-6xl sm:text-8xl md:text-[120px] font-bold uppercase leading-none">
+              <div className="text-4xl sm:text-6xl md:text-8xl lg:text-[120px] font-bold uppercase leading-none">
                 {item.title2}
               </div>
             </div>
-            <div className="mt-8 w-full md:w-[600px] text-base md:text-lg leading-relaxed max-w-[90vw] text-white/90">
+            <div className="mt-4 sm:mt-8 w-full md:w-[600px] text-sm sm:text-base md:text-lg leading-relaxed max-w-[90vw] text-white/90">
               {item.description}
             </div>
             <div className="mt-8 md:mt-10 flex items-center gap-6">
@@ -163,9 +163,9 @@ export default function Carousel() {
       ))}
 
       {/* Thumbnails */}
-      <div className="absolute right-[-2rem] md:right-2 bottom-20 z-30 overflow-hidden">
+      <div className="absolute right-0 sm:right-[-2rem] md:right-2 bottom-10 sm:bottom-20 z-30 overflow-hidden">
         <div
-          className="relative flex items-center"
+          className="relative flex items-center justify-end gap-2 sm:gap-4 pr-2 sm:pr-4"
           style={{ width: "calc(200px * 3 - 3rem)" }}
         >
           {items.slice(1).map((item, index) => (
@@ -177,18 +177,18 @@ export default function Carousel() {
                 transition-all duration-[1200ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]
                 hover:scale-[1.08] hover:-translate-y-2
                 group shrink-0
-                md:w-[200px] md:h-[300px]
+                w-[90px] h-[160px]
                 sm:w-[160px] sm:h-[270px]
-                w-[130px] h-[220px]
+                md:w-[200px] md:h-[300px]
                 ${
                   index >= 3
                     ? "translate-x-[100%] opacity-0"
                     : "translate-x-0 opacity-100"
                 }
-                -mr-8
+                -mr-2 sm:-mr-4 md:-mr-8
               `}
               style={{
-                transform: `translateX(${index * 25}%)`,
+                transform: `translateX(${index * 20}%)`,
                 transition:
                   "transform 1200ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 1200ms ease-out",
               }}
@@ -204,7 +204,7 @@ export default function Carousel() {
                          group-hover:bg-black/20"
               />
               <div
-                className="absolute bottom-0 left-0 right-0 p-6 text-white transition-transform duration-[1200ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]
+                className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-6 text-white transition-transform duration-[1200ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]
                          group-hover:translate-y-1"
                 style={{
                   background:
@@ -212,14 +212,14 @@ export default function Carousel() {
                 }}
               >
                 <div
-                  className="text-sm font-medium mb-1 opacity-90 transition-all duration-[1200ms]
+                  className="text-xs sm:text-sm font-medium mb-0.5 sm:mb-1 opacity-90 transition-all duration-[1200ms]
                             group-hover:opacity-100"
                 >
                   {item.place}
                 </div>
                 <div
-                  className="text-base font-bold leading-tight transition-all duration-[1200ms]
-                            group-hover:opacity-100"
+                  className="text-sm sm:text-base md:text-lg font-bold leading-tight transition-all duration-[1200ms]
+                            group-hover:opacity-100 line-clamp-2"
                 >
                   {item.title} {item.title2}
                 </div>
@@ -230,7 +230,7 @@ export default function Carousel() {
       </div>
 
       {/* Navigation */}
-      <div className="nav absolute bottom-8 right-16 z-50 select-none">
+      <div className="nav absolute bottom-4 sm:bottom-8 right-8 sm:right-16 z-50 select-none">
         <button
           className="btn bg-white/50 text-black/70 border-2 border-black/60 
                    mx-1 px-3 py-2 rounded-full cursor-pointer
