@@ -1,6 +1,10 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 
 const Footer = () => {
+  const [showMore, setShowMore] = useState(false);
+
   return (
     <footer className="bg-[#000000] text-[#FFFFFFDD] font-inter py-10 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -74,8 +78,12 @@ const Footer = () => {
                       href="#"
                       className="text-gray-400 hover:text-blue-400 transition-all duration-300 flex items-center group"
                     >
-                      <span className="text-blue-400 mr-2 transform group-hover:translate-x-1 transition-transform duration-300">›</span>
-                      <span className="group-hover:translate-x-1 transition-transform duration-300">About Us</span>
+                      <span className="text-blue-400 mr-2 transform group-hover:translate-x-1 transition-transform duration-300">
+                        ›
+                      </span>
+                      <span className="group-hover:translate-x-1 transition-transform duration-300">
+                        About Us
+                      </span>
                     </a>
                   </li>
                   <li>
@@ -83,8 +91,12 @@ const Footer = () => {
                       href="#"
                       className="text-gray-400 hover:text-blue-400 transition-all duration-300 flex items-center group"
                     >
-                      <span className="text-blue-400 mr-2 transform group-hover:translate-x-1 transition-transform duration-300">›</span>
-                      <span className="group-hover:translate-x-1 transition-transform duration-300">Courses</span>
+                      <span className="text-blue-400 mr-2 transform group-hover:translate-x-1 transition-transform duration-300">
+                        ›
+                      </span>
+                      <span className="group-hover:translate-x-1 transition-transform duration-300">
+                        Courses
+                      </span>
                     </a>
                   </li>
                   <li>
@@ -92,8 +104,12 @@ const Footer = () => {
                       href="#"
                       className="text-gray-400 hover:text-blue-400 transition-all duration-300 flex items-center group"
                     >
-                      <span className="text-blue-400 mr-2 transform group-hover:translate-x-1 transition-transform duration-300">›</span>
-                      <span className="group-hover:translate-x-1 transition-transform duration-300">Contact Us</span>
+                      <span className="text-blue-400 mr-2 transform group-hover:translate-x-1 transition-transform duration-300">
+                        ›
+                      </span>
+                      <span className="group-hover:translate-x-1 transition-transform duration-300">
+                        Contact Us
+                      </span>
                     </a>
                   </li>
                 </ul>
@@ -186,7 +202,9 @@ const Footer = () => {
 
               {/* Tag */}
               <div className="flex flex-col">
-                <h4 className="text-base font-semibold mb-4 uppercase text-white">Tag</h4>
+                <h4 className="text-base font-semibold mb-4 uppercase text-white">
+                  Tag
+                </h4>
                 <ul className="space-y-3 text-sm">
                   <li>
                     <a
@@ -288,7 +306,9 @@ const Footer = () => {
                         d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                       />
                     </svg>
-                    <span className="font-semibold text-gray-400">Address:</span>
+                    <span className="font-semibold text-gray-400">
+                      Address:
+                    </span>
                   </div>
                   <div className="ml-9 text-gray-400">
                     EDUROYALE Overseas Education Consultants,
@@ -370,7 +390,9 @@ const Footer = () => {
                         d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                       />
                     </svg>
-                    <span className="font-semibold text-gray-400">Address:</span>
+                    <span className="font-semibold text-gray-400">
+                      Address:
+                    </span>
                   </div>
                   <div className="ml-9 text-gray-400">
                     EDUROYALE Overseas Education Consultants,
